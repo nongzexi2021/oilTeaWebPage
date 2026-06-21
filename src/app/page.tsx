@@ -4,12 +4,12 @@ import Image from "next/image";
 import { FormEvent, useState } from "react";
 
 const benefits = [
-  ["出品简单", "开袋、加水、煮开即可，员工按标准比例就能稳定出品。"],
+  ["出品简单", "开袋、加水、煮开即可，不依赖复杂研发和专业师傅。"],
+  ["轻油感", "相比传统油茶的厚重印象，口感更清爽，适合现代餐饮场景。"],
   ["风味独特", "紫苏、姜与茶香融合，区别于常见奶茶、果茶和酸梅汤。"],
-  ["视觉好看", "青翠色泽适合拍照、菜单展示和欢迎饮场景。"],
-  ["冷热皆宜", "可做早餐热饮，也可做夏季冰饮和茶歇饮品。"],
-  ["广西特色", "适合本地餐饮、酒店、民宿、文旅和地方特色空间。"],
-  ["工厂直发", "按需采购，降低囤货压力，补货节奏更轻。"],
+  ["视觉好看", "青翠色泽适合拍照、菜单展示、欢迎饮和茶歇场景。"],
+  ["冷热皆宜", "热饮温润，冰饮清爽，可做早餐热饮，也可做夏季冰饮。"],
+  ["工厂直发", "按需采购，降低囤货压力，适合先试饮再上架。"],
 ];
 
 const scenes = [
@@ -39,6 +39,13 @@ const cooperationSteps = [
   "工厂直发，按需补货",
 ];
 
+const standardNotes = [
+  ["器具建议", "建议使用玻璃锅、不锈钢锅等稳定器具，避免影响颜色与口感。"],
+  ["煮制节奏", "水开后加入油茶膏，煮开后及时关火，保持风味清爽。"],
+  ["浓度控制", "可按门店杯型调整水量，早餐热饮与冰饮茶底可使用不同浓度。"],
+  ["前台表达", "可配合产品小卡片，让服务员用一句话讲清产区、原料和青绿色来源。"],
+];
+
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
@@ -57,6 +64,7 @@ export default function Home() {
           </a>
           <div className="hidden items-center gap-8 text-sm text-[#395447] md:flex">
             <a href="#product">产品</a>
+            <a href="#standard">出品</a>
             <a href="#scenes">场景</a>
             <a href="#sample">试样</a>
           </div>
@@ -74,7 +82,7 @@ export default function Home() {
         <div className="relative mx-auto grid max-w-7xl gap-12 px-5 pb-24 sm:px-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:pb-32">
           <div className="max-w-2xl">
             <p className="mb-7 inline-flex rounded-full border border-[#cfbd85]/60 bg-white/45 px-4 py-2 text-xs font-medium tracking-[0.2em] text-[#526251]">
-              广西特色饮品｜冷热皆宜｜开袋即煮｜工厂直发
+              广西特色饮品｜轻油感｜冷热皆宜｜开袋即煮
             </p>
             <h1 className="text-balance text-5xl font-semibold leading-[1.04] tracking-normal text-[#0c261d] sm:text-6xl lg:text-7xl">
               一杯来自广西的紫苏油茶
@@ -120,9 +128,7 @@ export default function Home() {
           当餐饮饮品越来越相似，门店需要一个新的记忆点
         </h2>
         <p className="mx-auto mt-8 max-w-3xl text-lg leading-9 text-[#5f7067]">
-          酸梅汤、玉米汁、柠檬茶、奶茶、咖啡，消费者已经非常熟悉。
-          对酒店、餐饮和文旅空间来说，一款好的饮品，不只是解渴，更应该成为体验的一部分。
-          它要有记忆点，有地方特色，出品简单，也要适合现代消费者对少糖、少冰、真实食材和轻养生饮品的期待。
+          消费者已经熟悉酸梅汤、玉米汁、柠檬茶、奶茶和咖啡。对酒店、餐饮和文旅空间来说，一款好的饮品，不只是解渴，更应该成为体验的一部分。它要有地方特色，有视觉记忆点，也要足够容易落地。
         </p>
       </section>
 
@@ -133,69 +139,88 @@ export default function Home() {
             <h2 className="mt-5 text-4xl font-semibold leading-tight sm:text-5xl">紫苏油茶是什么？</h2>
           </div>
           <p className="text-lg leading-9 text-[#d8e2d9]">
-            紫苏油茶是一款以茶、紫苏、姜和辛香植物为基础的广西特色饮品。
-            产品采用铝箔袋包装，商家只需开袋、加水、加热，即可快速出品。
-            热饮温润，冰饮清爽。青翠色泽具有视觉记忆点，适合酒店早餐、餐厅佐餐、会议茶歇、民宿欢迎饮和茶饮新品开发。
+            紫苏油茶是一款以茶、紫苏、姜和辛香植物为基础的广西特色饮品。产品采用铝箔袋包装，商家只需开袋、加水、加热，即可快速出品。热饮温润，冰饮清爽；青翠色泽具有视觉记忆点，适合酒店早餐、餐厅佐餐、会议茶歇、民宿欢迎饮和茶饮新品开发。
           </p>
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
-        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <div>
-            <p className="text-sm font-medium tracking-[0.2em] text-[#9b7f2f]">SERVICE FLOW</p>
+            <p className="text-sm font-medium tracking-[0.2em] text-[#9b7f2f]">NATURAL COLOR</p>
             <h2 className="mt-5 text-4xl font-semibold leading-tight sm:text-5xl">
-              开袋、加水、煮开，即可出品
+              这抹青绿色，本身就是记忆点
             </h2>
-            <p className="mt-6 text-lg leading-8 text-[#607067]">
-              不需要复杂研发，不依赖专业师傅，员工按照标准比例即可稳定出品。
-            </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {["开袋", "加水", "煮开"].map((step, index) => (
-              <div key={step} className="rounded-[28px] bg-white/65 p-8 shadow-[0_24px_70px_rgba(31,64,48,0.08)]">
-                <span className="text-sm font-medium text-[#b08b2d]">0{index + 1}</span>
-                <h3 className="mt-10 text-3xl font-semibold text-[#123b2d]">{step}</h3>
-              </div>
-            ))}
+          <div className="space-y-6 text-lg leading-9 text-[#5f7067]">
+            <p>
+              聊天里反复提到，紫苏油茶的青绿色容易让第一次接触的人好奇。它来自紫苏焯水、茶底和绿色辛香植物共同形成的自然色泽，并不是为了迎合市场刻意调色。
+            </p>
+            <p>
+              对门店来说，这反而是一个值得讲清楚的卖点：真实食材、透明工艺、颜色有辨识度。配合菜单图、欢迎饮小杯和产品介绍卡，可以让顾客更容易记住这杯饮品。
+            </p>
           </div>
         </div>
       </section>
 
-      <section id="cooperation" className="bg-[#fbf8ef]">
+      <section id="standard" className="bg-[#fbf8ef]">
         <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
-          <div className="max-w-3xl">
-            <p className="text-sm font-medium tracking-[0.2em] text-[#9b7f2f]">B2B VALUE</p>
-            <h2 className="mt-5 text-4xl font-semibold leading-tight sm:text-5xl">为商家降低新品上架成本</h2>
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <div>
+              <p className="text-sm font-medium tracking-[0.2em] text-[#9b7f2f]">STANDARD SERVICE</p>
+              <h2 className="mt-5 text-4xl font-semibold leading-tight sm:text-5xl">
+                开袋、加水、煮开，即可出品
+              </h2>
+              <p className="mt-6 text-lg leading-8 text-[#607067]">
+                从聊天记录看，门店真正关心的是稳定：颜色稳定、口感稳定、员工容易学会。我们把出品动作拆成可执行的标准建议，降低新品上架压力。
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {standardNotes.map(([title, text]) => (
+                <article key={title} className="rounded-[28px] bg-white/75 p-7 shadow-[0_20px_60px_rgba(21,52,39,0.07)]">
+                  <h3 className="text-xl font-semibold text-[#153f30]">{title}</h3>
+                  <p className="mt-4 leading-7 text-[#607067]">{text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cooperation" className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
+        <div className="max-w-3xl">
+          <p className="text-sm font-medium tracking-[0.2em] text-[#9b7f2f]">B2B VALUE</p>
+          <h2 className="mt-5 text-4xl font-semibold leading-tight sm:text-5xl">为商家降低新品上架成本</h2>
+        </div>
+        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {benefits.map(([title, text]) => (
+            <article key={title} className="rounded-[28px] bg-white/75 p-7 shadow-[0_20px_60px_rgba(21,52,39,0.07)]">
+              <h3 className="text-xl font-semibold text-[#153f30]">{title}</h3>
+              <p className="mt-4 leading-7 text-[#607067]">{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="scenes" className="bg-[#e9efe2]/70">
+        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
+          <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+            <div>
+              <p className="text-sm font-medium tracking-[0.2em] text-[#9b7f2f]">SCENES</p>
+              <h2 className="mt-5 text-4xl font-semibold leading-tight sm:text-5xl">一款产品，多种场景</h2>
+            </div>
+            <p className="max-w-sm text-lg leading-8 text-[#607067]">
+              从早餐到茶歇，从欢迎饮到新品菜单，同一款茶底适配不同门店节奏。
+            </p>
           </div>
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {benefits.map(([title, text]) => (
-              <article key={title} className="rounded-[28px] bg-white/75 p-7 shadow-[0_20px_60px_rgba(21,52,39,0.07)]">
+            {scenes.map(([title, text]) => (
+              <article key={title} className="group rounded-[28px] bg-[#fbf8ef]/80 p-7 transition hover:-translate-y-1 hover:bg-white">
                 <h3 className="text-xl font-semibold text-[#153f30]">{title}</h3>
                 <p className="mt-4 leading-7 text-[#607067]">{text}</p>
               </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section id="scenes" className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
-        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-          <div>
-            <p className="text-sm font-medium tracking-[0.2em] text-[#9b7f2f]">SCENES</p>
-            <h2 className="mt-5 text-4xl font-semibold leading-tight sm:text-5xl">一款产品，多种场景</h2>
-          </div>
-          <p className="max-w-sm text-lg leading-8 text-[#607067]">
-            从早餐到茶歇，从欢迎饮到新品菜单，同一款茶底适配不同门店节奏。
-          </p>
-        </div>
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {scenes.map(([title, text]) => (
-            <article key={title} className="group rounded-[28px] bg-[#e9efe2]/80 p-7 transition hover:-translate-y-1 hover:bg-white">
-              <h3 className="text-xl font-semibold text-[#153f30]">{title}</h3>
-              <p className="mt-4 leading-7 text-[#607067]">{text}</p>
-            </article>
-          ))}
         </div>
       </section>
 
@@ -228,30 +253,46 @@ export default function Home() {
           </div>
           <div className="space-y-7 text-lg leading-9 text-[#5f7067]">
             <p>
-              油茶本来是一种有温度的地方饮食。但如果油不好、姜不好、茶不好，
-              甚至辛香植物原料不够安心，本来承载着养生意味的食物，就会失去它原本的意义。
+              老板在聊天里多次强调，做入口的东西，首先要自己愿意给家人喝。紫苏、姜、茶和辛香植物原料都要认真筛选，不能只做一个好看的概念。
             </p>
             <p>
-              创始人高兴是桂林本地人，从小熟悉油茶，也更懂一杯油茶应该有的味道。
-              她选择云南小黄姜、自家种植的双面紫苏，以及更安心的辛香植物原料，
-              希望把一杯传统油茶做得更干净、更稳定，也更适合现代餐饮场景。
+              创始人高兴是桂林本地人，从小熟悉油茶，也更懂一杯油茶应该有的味道。她选择云南小黄姜、自家种植的双面紫苏，并持续优化嫩叶采摘、研磨细度和出品稳定性，希望把传统油茶做得更干净、更稳定，也更适合现代餐饮场景。
             </p>
           </div>
         </div>
       </section>
 
       <section className="bg-[#fbf8ef]">
-        <div className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
-          <p className="text-sm font-medium tracking-[0.2em] text-[#9b7f2f]">COOPERATION</p>
-          <h2 className="mt-5 text-4xl font-semibold leading-tight sm:text-5xl">轻量合作，低门槛试用</h2>
-          <div className="mt-12 grid gap-4 lg:grid-cols-5">
-            {cooperationSteps.map((item, index) => (
-              <div key={item} className="rounded-[26px] bg-white/75 p-6 shadow-[0_20px_60px_rgba(21,52,39,0.06)]">
-                <span className="text-sm font-medium text-[#b08b2d]">0{index + 1}</span>
-                <p className="mt-8 text-lg font-semibold leading-7 text-[#153f30]">{item}</p>
-              </div>
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-[0.85fr_1.15fr]">
+          <div>
+            <p className="text-sm font-medium tracking-[0.2em] text-[#9b7f2f]">SALES SUPPORT</p>
+            <h2 className="mt-5 text-4xl font-semibold leading-tight sm:text-5xl">不只是供货，也帮门店讲清楚</h2>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[
+              ["产品小卡片", "标注产区、原料、轻油感和青绿色来源，让顾客一眼理解。"],
+              ["员工话术", "用简短表达讲清“这是什么、怎么喝、适合什么场景”。"],
+              ["扫码申请", "后续可把名片、菜单和桌牌接入网页，方便客户申请样品。"],
+            ].map(([title, text]) => (
+              <article key={title} className="rounded-[28px] bg-white/75 p-7 shadow-[0_20px_60px_rgba(21,52,39,0.06)]">
+                <h3 className="text-xl font-semibold text-[#153f30]">{title}</h3>
+                <p className="mt-4 leading-7 text-[#607067]">{text}</p>
+              </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-24 sm:px-8 sm:py-32">
+        <p className="text-sm font-medium tracking-[0.2em] text-[#9b7f2f]">COOPERATION</p>
+        <h2 className="mt-5 text-4xl font-semibold leading-tight sm:text-5xl">轻量合作，低门槛试用</h2>
+        <div className="mt-12 grid gap-4 lg:grid-cols-5">
+          {cooperationSteps.map((item, index) => (
+            <div key={item} className="rounded-[26px] bg-white/75 p-6 shadow-[0_20px_60px_rgba(21,52,39,0.06)]">
+              <span className="text-sm font-medium text-[#b08b2d]">0{index + 1}</span>
+              <p className="mt-8 text-lg font-semibold leading-7 text-[#153f30]">{item}</p>
+            </div>
+          ))}
         </div>
       </section>
 
